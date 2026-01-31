@@ -110,6 +110,9 @@ public class LetterboxdSyncTask : IScheduledTask
                     {
                         var filmResult = await api.SearchFilmByTmdbId(tmdbid).ConfigureAwait(false);
 
+                        // Add a small delay between lookups to avoid 403 (Cloudflare/Anti-bot)
+                        await Task.Delay(1000 + Random.Shared.Next(1000), cancellationToken).ConfigureAwait(false);
+
                         var dateLastLog = await api.GetDateLastLog(filmResult.filmSlug).ConfigureAwait(false);
                         viewingDate = new DateTime(viewingDate.Value.Year, viewingDate.Value.Month, viewingDate.Value.Day);
 

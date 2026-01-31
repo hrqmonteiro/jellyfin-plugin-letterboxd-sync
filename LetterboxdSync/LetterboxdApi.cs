@@ -177,7 +177,11 @@ public class LetterboxdApi
         headers.TryAddWithoutValidation("sec-fetch-site", site);
         headers.TryAddWithoutValidation("sec-fetch-user", "?1");
         headers.TryAddWithoutValidation("upgrade-insecure-requests", "1");
+
+        // Use the same Priority header consistently
+        if (headers.Contains("Priority")) headers.Remove("Priority");
         headers.TryAddWithoutValidation("Priority", "u=0, i");
+
         if (referrer != null)
         {
             headers.Referrer = new Uri(referrer);
@@ -359,6 +363,9 @@ public class LetterboxdApi
 
     public async Task<FilmResult> SearchFilmByTmdbId(int tmdbid)
     {
+        // Add a small initial delay to avoid bursting
+        await Task.Delay(500 + Random.Shared.Next(500)).ConfigureAwait(false);
+
         // Reuse the authenticated client + cookies from Authenticate.
         var tmdbPath = $"/tmdb/{tmdbid}";
 
@@ -372,7 +379,10 @@ public class LetterboxdApi
                 {
                     var body = await res.Content.ReadAsStringAsync().ConfigureAwait(false);
                     if (body.Length > 300) body = body.Substring(0, 300);
-                    throw new Exception($"TMDB lookup returned 403 for https://letterboxd.com/tmdb/{tmdbid}. Body: " + body);
+                    
+                    // If we got a 403, it's likely Cloudflare blocking automated lookups.
+                    // We'll throw but suggest raw cookies/delays in the log elsewhere.
+                    throw new Exception($"TMDB lookup returned 403 (Forbidden) for https://letterboxd.com/tmdb/{tmdbid}. This usually means Cloudflare is blocking the request. Body: " + body);
                 }
 
                 if (!res.IsSuccessStatusCode)
