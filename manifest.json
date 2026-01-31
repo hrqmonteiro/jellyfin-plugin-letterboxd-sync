@@ -19,6 +19,14 @@
     "imageUrl": "https://raw.githubusercontent.com/danielveigasilva/jellyfin-plugin-letterboxd-sync/master/images/letterboxd-sync.png",
     "versions": [
       {
+        "version": "1.1.10.0",
+        "changelog": "- fix: run sync task with cookiesraw before authenticate if exists (f5a8da9)\n- chore: change README.md (ae90ddb)",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/releases/download/v1.1.10/jellyfin-plugin-letterboxd-sync-v1.1.10.zip",
+        "checksum": "0d9f01304ee5d7ca1c2112254b42c55a",
+        "timestamp": "2026-01-31T22:27:59Z"
+      },
+      {
         "version": "1.1.9.0",
         "changelog": "- chore: fix csrf and cloudflare error; add cookies input on settings (148e3e6)",
         "targetAbi": "10.11.0.0",
