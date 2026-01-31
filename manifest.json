@@ -23,28 +23,12 @@
     "imageUrl": "https://raw.githubusercontent.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/master/images/letterboxd-sync.png",
     "versions": [
       {
-        "version": "1.1.11.0",
-        "changelog": "- chore: edit manifest.json (5a7a02e)",
+        "version": "1.2.0.0",
+        "changelog": "- feat: fixing csrf and cloudflare login error; adding raw cookies section on plugin settings to bypass it (5a36a5e)",
         "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/releases/download/v1.1.11/jellyfin-plugin-letterboxd-sync-v1.1.11.zip",
-        "checksum": "b667dae18481f3353d26e93b45309f91",
-        "timestamp": "2026-01-31T22:32:56Z"
-      },
-      {
-        "version": "1.1.10.0",
-        "changelog": "- fix: run sync task with cookiesraw before authenticate if exists (f5a8da9)\n- chore: change README.md (ae90ddb)",
-        "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/releases/download/v1.1.10/jellyfin-plugin-letterboxd-sync-v1.1.10.zip",
-        "checksum": "0d9f01304ee5d7ca1c2112254b42c55a",
-        "timestamp": "2026-01-31T22:27:59Z"
-      },
-      {
-        "version": "1.1.9.0",
-        "changelog": "- chore: fix csrf and cloudflare error; add cookies input on settings (148e3e6)",
-        "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/releases/download/v1.1.9/jellyfin-plugin-letterboxd-sync-v1.1.9.zip",
-        "checksum": "2780e2f0d083247fcba12514c7ebde66",
-        "timestamp": "2026-01-31T22:07:26Z"
+        "sourceUrl": "https://github.com/hrqmonteiro/jellyfin-plugin-letterboxd-sync/releases/download/v1.2.0/jellyfin-plugin-letterboxd-sync-v1.2.0.zip",
+        "checksum": "a46a542a95d96ddab5155f247a7f85d5",
+        "timestamp": "2026-01-31T22:53:01Z"
       },
       {
         "version": "1.1.8.0",
